@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: -4420555047328207654
     second: custom-avatar-spritesheet_2
+  - first:
+      213: 4728684898169324334
+    second: custom-avatar-spritesheet_6
+  - first:
+      213: 7105833529682046801
+    second: custom-avatar-spritesheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -104,7 +110,7 @@ TextureImporter:
         width: 437
         height: 1619
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -125,7 +131,7 @@ TextureImporter:
         width: 437
         height: 1633
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,7 +152,7 @@ TextureImporter:
         width: 443
         height: 1637
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,6 +160,27 @@ TextureImporter:
       bones: []
       spriteID: adc21f50b9807a2c0800000000000000
       internalID: -4420555047328207654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: custom-avatar-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 3946
+        width: 441
+        height: 1638
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23032a7cd9af9140800000000000000
+      internalID: 4728684898169324334
       vertices: []
       indices: 
       edges: []
