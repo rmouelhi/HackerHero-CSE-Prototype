@@ -3,7 +3,26 @@ guid: f21b488fd681a98408035cd469a9a3fa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - blankImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  - displayAvatar: {instanceID: 0}
+  - hairPanel: {instanceID: 0}
+  - eyesPanel: {instanceID: 0}
+  - nosePanel: {instanceID: 0}
+  - mouthPanel: {instanceID: 0}
+  - clothesPanel: {instanceID: 0}
+  - skinImage: {fileID: 4316744099522310527, guid: 515c061101ff70548a960f3aef822925,
+      type: 3}
+  - hairImage: {fileID: 3815800577057042782, guid: b643e83acaaf44542a5a66d9300d668d,
+      type: 3}
+  - eyesImage: {fileID: 4046681402629364377, guid: 2ef606353c69dd54099ecd2cf51402d8,
+      type: 3}
+  - noseImage: {fileID: 2751111355402060675, guid: bfa5a5a936958c34b84fe5edc6fd96a9,
+      type: 3}
+  - mouthImage: {fileID: 7894976533953399632, guid: d316834da7c98af4eb278dc73df4e48f,
+      type: 3}
+  - clothesImage: {fileID: 3448235561511890501, guid: 5e2bf4bb2b3745f47a3d2a0a9261eeaa,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
