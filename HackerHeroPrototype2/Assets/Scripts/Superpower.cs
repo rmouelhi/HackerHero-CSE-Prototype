@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Superpower : MonoBehaviour
+public class Superpower 
 {
     string superpowers;
     public  Superpower(string superpower)
@@ -11,4 +11,10 @@ public class Superpower : MonoBehaviour
     }
 
     public global::System.String Superpowers { get => superpowers; set => superpowers = value; }
+
+
+    public string toString()
+    {
+        return "Superpowers: " + this.superpowers + "\n";
+    }
 }

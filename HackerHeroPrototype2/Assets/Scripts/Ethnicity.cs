@@ -11,4 +11,9 @@ public class Ethnicity : MonoBehaviour
     }
 
     public global::System.String Name { get => name; set => name = value; }
+
+    public string toString()
+    {
+        return name;
+    }
 }

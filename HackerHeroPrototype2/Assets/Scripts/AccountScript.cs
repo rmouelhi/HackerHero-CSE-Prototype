@@ -5,42 +5,61 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class AccountScript : MonoBehaviour
 {
     //public Account account;
     private int currentPage;
     private float currentProgress;
     private string acntName;
-    private string[] pronouns; // Subjective, Objective, Possesive, Possesive Pronoun
+    //private string[] pronouns; // Subjective, Objective, Possesive, Possesive Pronoun
     private string genderID;
     private string ethnicity;
     private int gradeLvl;
     private string hasDisability;
-    //public Account2 account;
-    
+    private Pronouns pronouns;
+    private MissionFocus missions;
+    private Gender gender;
+    public Account2 account;
+    private bool helpingCivilians, hacking, climbingRanks, solvingCrime, pronounHelp, genderHelp,dayNight;
 
 
-    public GameObject[] panels = new GameObject[9];
-    public GameObject AccountPage1;
-    public GameObject AccountPage2;
-    public GameObject AccountPage3;
-    public GameObject AccountPage4;
-    public GameObject AccountPage5;
-    public GameObject AccountPage6;
-    public GameObject AccountPage7;
-    public GameObject AccountPage8;
-    public GameObject AvatarPage;
+
+    [Header("Settings")]
+    public GameObject[] panels = new GameObject[10];
+    public GameObject mainCamera;
+    private GameObject[] toggleList;
+    [Header("Progress Bar")]
+    public GameObject progressBar;
+    public GameObject nextButton;
+    public GameObject previousButton;
     public RectTransform progressMask;
     private const float PROGRESS_RATE = 0.14f;
 
-    [Header("Page 1")]
+    [Header("Name")]
     public TMP_InputField nameField;
 
-    [Header("Page 2")]
-    public GameObject pronounFieldObj; // used to show/hide
-    public TMP_InputField pronounField;
+    [Header("Pronouns")]
+    public GameObject subjectFieldObj; // used to show/hide
+    public TMP_InputField subjectField;
+    public GameObject objectFieldObj;
+    public TMP_InputField objectField;
+    public GameObject possessiveFieldObj;
+    public TMP_InputField possessiveField;
+    public GameObject reflexiveFieldObj;
+    public TMP_InputField reflexiveField;
 
-    public struct Account
+    public GameObject pronounDefinition;
+
+    [Header("Gender")]
+    public GameObject genderFieldObj;
+    public TMP_InputField genderField;
+    public GameObject genderDefinition;
+    [Header("Superpower")]
+    public TMP_InputField superPowerField;
+
+
+    /*public struct Account
     {
         string name;
         string[] pronouns; // Subjective, Objective, Possesive, Possesive Pronoun
@@ -58,56 +77,79 @@ public class AccountScript : MonoBehaviour
             hasDisability = _hasDisability;
             gradeLvl = _gradeLvl;
         }
-    }
+    }*/
 
     public void Start()
     {
+        account = new Account2(); //temp
+        missions = new MissionFocus();
+        genderDefinition.SetActive(false);
+        pronounDefinition.SetActive(false);
         currentPage = 0;
-        //Account2 account = new Account2();
-        ChangePanelHelper(0);
+        
+        
 
         currentProgress = 0.02f; // Temp!!! TODO check progress
         acntName = null; // Temp!
-        pronouns = new string[4];
+        helpingCivilians = false;
+        solvingCrime = false;
+        hacking = false;
+        climbingRanks = false; //temp!
+        progressBar.SetActive(false);
+        previousButton.SetActive(false);
+        dayNight = false;
+
+
+        SetAllPanelsActive();
+        toggleList = GameObject.FindGameObjectsWithTag("ToggleText");
+        Debug.Log("toggleList length: " + toggleList.Length);
+        ChangePanelHelper(0);
     }
 
     public void ChangePage(int direction)
     {
         currentPage += direction;
-       
-        
 
-
-        Debug.Log(AccountToString()); // Temp!
+        Debug.Log(account.toString());
+        //Debug.Log(AccountToString()); // Temp!
 
 
 
         switch (currentPage)
         {
-            case 0:
+            case 0: //intro page 1
+                progressBar.SetActive(false);
+                previousButton.SetActive(false);
                 ChangePanelHelper(currentPage);
                 break;
-            case 1: // Name Page
-                //progressMask.localScale = new Vector3(0.1f, 1f, 1f);
+            case 1: //intro page 2
+                progressBar.SetActive(false);
+                previousButton.SetActive(false);
+                nextButton.SetActive(true);
+                
                 ChangePanelHelper(currentPage);
                 break;
-            case 2: // Pronoun Page
+            case 2: //name
+                progressBar.SetActive(true);
+                progressMask.localScale = new Vector3(0.16f, 1f, 1f);
                 ChangePanelHelper(currentPage);
                 UpdateName();
                
                 break;
-            case 3: // Gender Page
+            case 3: //pronouns
                 
-                progressMask.localScale = new Vector3(PROGRESS_RATE * 2 + currentProgress, 1f, 1f);
+                
                 if (acntName != null)
                 {
-                    progressMask.localScale = new Vector3(PROGRESS_RATE + currentProgress, 1f, 1f);
+                    progressBar.SetActive(true);
+                    previousButton.SetActive(true);
+                    progressMask.localScale = new Vector3(0.16f*2f , 1f, 1f);
                     ChangePanelHelper(currentPage);
-
-                    if (pronouns[0] == null)
+                    if(pronouns == null)
                     {
                         UpdatePronouns(0);
                     }
+                    
                 }
                 else
                 {
@@ -119,10 +161,12 @@ public class AccountScript : MonoBehaviour
 
                 
                 break;
-            case 4:
-                progressMask.localScale = new Vector3(PROGRESS_RATE * 3 + currentProgress, 1f, 1f);
+            case 4: //gender
+                progressBar.SetActive(true);
+                previousButton.SetActive(true);
+                progressMask.localScale = new Vector3(0.16f * 3f , 1f, 1f);
                 ChangePanelHelper(currentPage);
-                if (genderID == null)
+                if (gender == null)
                 {
                     UpdateGender(0);
                 }
@@ -130,45 +174,59 @@ public class AccountScript : MonoBehaviour
 
             
                 break;
-            case 5:
-                progressMask.localScale = new Vector3(PROGRESS_RATE * 4 + currentProgress, 1f, 1f);
+            case 5: //grade
+                progressBar.SetActive(true);
+                previousButton.SetActive(true);
+                progressMask.localScale = new Vector3(0.16f * 4f , 1f, 1f);
                 ChangePanelHelper(currentPage);
-                if (ethnicity == null)
-                {
-                    UpdateEthnicity(0);
-                }
+                
                
               
                 break;
-            case 6:
-                progressMask.localScale = new Vector3(PROGRESS_RATE * 5 + currentProgress, 1f, 1f);
+            case 6: //missions
+                progressBar.SetActive(true);
+                previousButton.SetActive(true);
+                progressMask.localScale = new Vector3(0.16f * 5f , 1f, 1f);
                 ChangePanelHelper(currentPage);
-                if (hasDisability == null)
-                {
-                    UpdateDisability(0);
-                }
+                
+               
                 
              
                 break;
-            case 7:
-                progressMask.localScale = new Vector3(PROGRESS_RATE * 6 + currentProgress, 1f, 1f);
+            case 7: //superpower
+                progressBar.SetActive(true);
+                previousButton.SetActive(true);
+                progressMask.localScale = new Vector3(1f , 1f, 1f);
                 ChangePanelHelper(currentPage);
                 if (gradeLvl == 0)
                 {
                     UpdateGrade(3);
                 }
                 break;
-            case 8:
+            case 8: //"Grea job agent, Now it is time to create your avatar"
+                progressBar.SetActive(false);
+                previousButton.SetActive(false);
                 ChangePanelHelper(currentPage);
 
                 break;
 
-            case 9:
+            case 9: //character creator
+                progressBar.SetActive(false);
+                nextButton.SetActive(false);
+                previousButton.SetActive(false);
                 ChangePanelHelper(currentPage);
                 break;
             default:
                 SceneManager.LoadScene(0);
                 break;
+        }
+    }
+
+    public void SetAllPanelsActive()
+    {
+        foreach(GameObject panel in panels)
+        {
+            panel.SetActive(true);
         }
     }
     public void ChangePanelHelper(int pageNumber)
@@ -189,14 +247,14 @@ public class AccountScript : MonoBehaviour
     {
         if (nameField.text != "")
         {
-            /*if (acntName == null)
+            if (acntName == null)
             {
                 currentProgress += PROGRESS_RATE;
                 progressMask.localScale = new Vector3(currentProgress, 1f, 1f);
-            }*/
+            }
 
             acntName = nameField.text;
-            //account.setName(nameField.text);
+            account.setName(nameField.text);
 
         }
         else
@@ -207,6 +265,7 @@ public class AccountScript : MonoBehaviour
 
     public void UpdatePronouns(int _selection)
     {
+         
         /*if (pronouns[0] == null)
         {
             currentProgress += PROGRESS_RATE;
@@ -216,37 +275,68 @@ public class AccountScript : MonoBehaviour
         switch (_selection)
         {
             case 0:
-                pronounFieldObj.SetActive(false);
-                pronouns[0] = "she";
-                pronouns[1] = "her";
-                pronouns[2] = "her";
-                pronouns[3] = "hers";
+                subjectFieldObj.SetActive(false);
+                objectFieldObj.SetActive(false);
+                possessiveFieldObj.SetActive(false);
+                reflexiveFieldObj.SetActive(false);
+                pronouns = new Pronouns("they", "them", "their", "themselves");
+                account.Pronouns = pronouns;
                 break;
             case 1:
-                pronounFieldObj.SetActive(false);
-                pronouns[0] = "he";
-                pronouns[1] = "him";
-                pronouns[2] = "his";
-                pronouns[3] = "his";
+                subjectFieldObj.SetActive(false);
+                objectFieldObj.SetActive(false);
+                possessiveFieldObj.SetActive(false);
+                reflexiveFieldObj.SetActive(false);
+                pronouns = new Pronouns("she", "her", "hers", "herself");
+                account.Pronouns = pronouns;
                 break;
             case 2:
-                pronounFieldObj.SetActive(false);
-                pronouns[0] = "they";
-                pronouns[1] = "them";
-                pronouns[2] = "their";
-                pronouns[3] = "theirs";
+                subjectFieldObj.SetActive(false);
+                objectFieldObj.SetActive(false);
+                possessiveFieldObj.SetActive(false);
+                reflexiveFieldObj.SetActive(false);
+                pronouns = new Pronouns("he", "him", "his", "himself");
+                account.Pronouns = pronouns;
+                
+               
                 break;
             default:
-                pronounFieldObj.SetActive(true);
+                subjectFieldObj.SetActive(true);
+                objectFieldObj.SetActive(true);
+                possessiveFieldObj.SetActive(true);
+                reflexiveFieldObj.SetActive(true);
+                pronouns = new Pronouns();
+                account.Pronouns = pronouns;
                 // TEMP !!! TODO: Add string parser, validator, and update currentProgress
-                pronouns[0] = "Xe"; // temp
-                pronouns[1] = "Xem"; // temp
-                pronouns[2] = "Xyr"; // temp
-                pronouns[3] = "Xyrs"; // temp
+
                 break;
         }
         
     }
+
+    public void UpdateSubject()
+    {
+        
+        if(subjectField.text != "") pronouns.Subject = subjectField.text;
+        account.Pronouns = pronouns;
+    }
+    public void UpdateObjectPronoun()
+    {
+        if (objectField.text != "") pronouns.ObjectPronoun = objectField.text;
+        account.Pronouns = pronouns;
+    }
+    public void UpdatePossessive()
+    {
+        if (possessiveField.text != "") pronouns.Possessive = possessiveField.text;
+        
+        account.Pronouns = pronouns;
+    }
+    public void UpdateReflexive()
+    {
+        if (reflexiveField.text != "") pronouns.Reflexive = reflexiveField.text;
+        account.Pronouns = pronouns;
+    }
+
 
     public void UpdateGender(int _selection)
     {
@@ -259,80 +349,147 @@ public class AccountScript : MonoBehaviour
         switch (_selection)
         {
             case 0:
-                genderID = "girl";
+                genderFieldObj.SetActive(false);
+                gender = new Gender("non-binary");
+                account.Gender = gender;
                 break;
             case 1:
-                genderID = "boy";
+                genderFieldObj.SetActive(false);
+                gender = new Gender("boy");
+                account.Gender = gender;
                 break;
             case 2:
-                genderID = "non-binary";
+                genderFieldObj.SetActive(false);
+                gender = new Gender("girl");
+                account.Gender = gender;
                 break;
             default:
-                genderID = "unknown";
+                genderFieldObj.SetActive(true);
+                gender = new Gender();
+                account.Gender = gender;
                 break;
         }
     }
 
-    public void UpdateEthnicity(int _selection)
+    public void CustomGender()
     {
-
-        
-        switch (_selection)
-        {
-            case 0:
-                ethnicity = "Black/African-American";
-                break;
-            case 1:
-                ethnicity = "Indigenous/Native-American";
-                break;
-            case 2:
-                ethnicity = "white";
-                break;
-            case 3:
-                ethnicity = "unknown";
-                break;
-            case 4:
-                ethnicity = "latinx";
-                break;
-            case 5:
-                ethnicity = "middle eastern";
-                break;
-            case 6:
-                ethnicity = "asian";
-                break;
-            default:
-                ethnicity = "other";
-                break;
-        }
+        if (genderField.text != "") gender.Genders = genderField.text;
+        account.Gender = gender; 
     }
 
-    public void UpdateDisability(int _selection)
-    {
-        switch (_selection)
-        {
-            case 0:
-                
-                hasDisability = "yes";
-                break;
-            case 1:
-                hasDisability = "no";
-                break;
-            case 2:
-                hasDisability = "unsure";
-                break;
-            default:
-                hasDisability = "unknown";
-                break;
-        }
-    }
+
+
+
 
     public void UpdateGrade(int _selection)
     {
 
-        gradeLvl = _selection;
+        account.GradeLvl = _selection;
+    }
+
+    public void HelpingCivilians()
+    {
+        helpingCivilians = !helpingCivilians;
+        missions.HelpingCivilians = helpingCivilians;
+        account.Missions = missions;
+    }
+    public void HackingSystem()
+    {
+        hacking = !hacking;
+        missions.Hacking = hacking;
+        account.Missions = missions;
+    }
+    public void SolvingCrime()
+    {
+        solvingCrime = !solvingCrime;
+        missions.SolvingCrime = solvingCrime;
+        account.Missions = missions;
+
+
+    }
+    public void ClimbingRanks()
+    {
+        climbingRanks = !climbingRanks;
+        missions.ClimbingRanks = climbingRanks;
+        account.Missions = missions;
+
+    }
+    public void UpdateSuperPower()
+    {
+        if (superPowerField.text != "")
+        {
+            string input = superPowerField.text;
+            Superpower superpower = new Superpower(input);
+            account.SuperPower = superpower;
+            
+
+        }
+        else
+        {
+            Debug.Log("Name field is empty");
+        }
+    }
+    public void togglePronounPanel()
+    {
+        pronounHelp = !pronounHelp;
+        pronounDefinition.SetActive(pronounHelp);
+    }
+    public void toggleGenderPanel()
+    {
+        genderHelp = !genderHelp;
+        genderDefinition.SetActive(genderHelp);
+    }
+
+    public void toggleDayNightMode()
+    {
+        Text textComponent;
+        TMP_Text tmpComponent;
+        dayNight = !dayNight;
+        if (dayNight)
+        {
+            mainCamera.GetComponent<Camera>().backgroundColor = Color.white;
+            foreach(GameObject text in toggleList)
+            {
+                textComponent = text.GetComponent<Text>();
+                if(textComponent != null)
+                {
+                    textComponent.color = Color.black;
+                }
+                else
+                {
+                    tmpComponent = text.GetComponent<TMP_Text>();
+                    if(tmpComponent != null)
+                    {
+                        tmpComponent.color = Color.black;
+                    }
+                }
+                
+            }
+        }
+        else
+        {
+            mainCamera.GetComponent<Camera>().backgroundColor = Color.black;
+            foreach (GameObject text in toggleList)
+            {
+                textComponent = text.GetComponent<Text>();
+                if (textComponent != null)
+                {
+                    textComponent.color = Color.white;
+                }
+                else
+                {
+                    tmpComponent = text.GetComponent<TMP_Text>();
+                    if (tmpComponent != null)
+                    {
+                        tmpComponent.color = Color.white;
+                    }
+                }
+            }
+        }
+        
     }
     
-   
+
 
     //#################### SAVE AND LOAD ACCOUNT FOR SERVER AND CLIENT ####################//
 
@@ -372,7 +529,7 @@ public class AccountScript : MonoBehaviour
     //#####################################################################################//
 
     // Will migrated into Account struct
-    private string AccountToString()
+    /*private string AccountToString()
     {
         string accnt = "";
         accnt = currentPage != -1 ? accnt + "currentPage: " + currentPage + "\n" : accnt;  // temp
@@ -384,5 +541,5 @@ public class AccountScript : MonoBehaviour
         accnt = hasDisability != null ? accnt + "hasDisability: " + hasDisability + "\n" : accnt;
         accnt = gradeLvl != 0 ? accnt + "gradeLvl: " + gradeLvl + "\n" : accnt;
         return accnt;
-    }
+    }*/
 }
