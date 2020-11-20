@@ -34,10 +34,14 @@ public class CustomizationUIController : MonoBehaviour
 
     private bool isFirstPhoto;
 
+    private bool enableReference;
+
     // Start is called before the first frame update
     void Start()
     {
         isFirstPhoto = true;
+
+        enableReference = false;
     }
 
     public void StartVideo()
@@ -155,5 +159,31 @@ public class CustomizationUIController : MonoBehaviour
                 break;
         }
         */
+    }
+
+    public void ToggleReference()
+    {
+        enableReference = !enableReference;
+
+        if (!enableReference)
+        {
+            avatarPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0.25f, 0f);
+            avatarPanel.GetComponent<RectTransform>().anchorMax = new Vector2(0.75f, 1f);
+
+            avatarPanel.SetActive(true);
+            videoPanel.SetActive(false);
+            currentReferencePanel.SetActive(false);
+            potentialReferencePanel.SetActive(false);
+        }
+        else
+        {
+            avatarPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0f, 0f);
+            avatarPanel.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1f);
+
+            DisplayState(0);
+        }
+        
+        avatarPanel.GetComponent<RectTransform>().offsetMin = new Vector2(4, 4);
+        avatarPanel.GetComponent<RectTransform>().offsetMax = new Vector2(4, 4);
     }
 }

@@ -3,7 +3,17 @@ guid: 7479860f11e9866468462c659e709a81
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - videoMaterial: {fileID: 2100000, guid: 7208dfe6cf76ea14a992d89ce2d30186, type: 2}
+  - currentMaterial: {fileID: 2100000, guid: c2b5748133083594ab74ab82715329aa, type: 2}
+  - potentialMaterial: {fileID: 2100000, guid: cb92e83ec4432494c8b7739186aca8ff, type: 2}
+  - videoButton: {instanceID: 0}
+  - keepPhotoButton: {instanceID: 0}
+  - videoPanel: {instanceID: 0}
+  - currentReferencePanel: {instanceID: 0}
+  - potentialReferencePanel: {instanceID: 0}
+  - avatarPanel: {instanceID: 0}
+  - videoInstructionText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -9,56 +9,62 @@ public class CharacterCreatorController : MonoBehaviour
     public Sprite blankImage;
 
     [Header("Overlay")]
+    public GameObject selectionPanel;
+    public GameObject displayPanel;
     public GameObject displayAvatar;
-    public GameObject hairPanel;
-    public GameObject eyesPanel;
-    public GameObject nosePanel;
-    public GameObject mouthPanel;
-    public GameObject clothesPanel;
     private GameObject[] onSamples;
     private GameObject[] offSamples;
 
     [Header("Skin")]
+    public GameObject skinColorPanel;
     public GameObject skinImage;
     //private Sprite[] skins;
 
     [Header("Hair")]
+    public GameObject hairImagePanel;
+    public GameObject hairColorPanel;
     public GameObject hairImage;
     private Sprite[] hairs;
 
     [Header("Eyes")]
+    public GameObject eyesImagePanel;
     public GameObject eyesImage;
     private Sprite[] eyes;
 
     [Header("Nose")]
+    public GameObject noseImagePanel;
     public GameObject noseImage;
     private Sprite[] noses;
 
     [Header("Mouth")]
+    public GameObject mouthImagePanel;
     public GameObject mouthImage;
     private Sprite[] mouths;
 
     [Header("Clothes")]
+    public GameObject clothesImagePanel;
     public GameObject clothesImage;
     private Sprite[] clothes;
 
     private bool zoomDisplay;
+    private bool enablePreview;
     private bool showSamples;
 
     void Start()
     {
         // Objects must be active for FindGameObjectsWithTag to function
-        hairPanel.SetActive(true);
-        eyesPanel.SetActive(true);
-        nosePanel.SetActive(true);
-        mouthPanel.SetActive(true);
-        clothesPanel.SetActive(true);
+        hairImagePanel.SetActive(true);
+        eyesImagePanel.SetActive(true);
+        noseImagePanel.SetActive(true);
+        mouthImagePanel.SetActive(true);
+        clothesImagePanel.SetActive(true);
 
         onSamples = GameObject.FindGameObjectsWithTag("Sample On");
         offSamples = GameObject.FindGameObjectsWithTag("Sample Off");
 
         //UpdatePrefabAttributes script;
         zoomDisplay = false;
+        enablePreview = false;
         showSamples = false;
 
         foreach (GameObject sample in onSamples)
@@ -75,11 +81,13 @@ public class CharacterCreatorController : MonoBehaviour
             sample.SetActive(!showSamples);
         }
 
-        hairPanel.SetActive(true);
-        eyesPanel.SetActive(false);
-        nosePanel.SetActive(false);
-        mouthPanel.SetActive(false);
-        clothesPanel.SetActive(false);
+        skinColorPanel.SetActive(false);
+        hairImagePanel.SetActive(true);
+        hairColorPanel.SetActive(true);
+        eyesImagePanel.SetActive(false);
+        noseImagePanel.SetActive(false);
+        mouthImagePanel.SetActive(false);
+        clothesImagePanel.SetActive(false);
 
         //hairs = Resources.LoadAll<Sprite>("VarissaArt/Skin");
         hairs = Resources.LoadAll<Sprite>("VarissaArt/Hair");
@@ -95,6 +103,30 @@ public class CharacterCreatorController : MonoBehaviour
         displayAvatar.GetComponent<RectTransform>().anchorMin = zoomDisplay ?
                 new Vector2(0, -1.555f) : new Vector2(0, 0);
         displayAvatar.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+    }
+
+    public void TogglePreview()
+    {
+        enablePreview = !enablePreview;
+
+        if (!enablePreview)
+        {
+            displayPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0f, 0.67f);
+            displayPanel.GetComponent<RectTransform>().anchorMax = new Vector2(1f, 1f);
+
+            selectionPanel.SetActive(true);
+        }
+        else
+        {
+            displayPanel.GetComponent<RectTransform>().anchorMin = new Vector2(0f, 0f);
+            displayPanel.GetComponent<RectTransform>().anchorMax = new Vector2(1f, 1f);
+
+            selectionPanel.SetActive(false);
+        }
+
+        displayPanel.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+        displayPanel.GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+
     }
 
     public void ToggleSamples()
@@ -147,39 +179,49 @@ public class CharacterCreatorController : MonoBehaviour
         switch (_selection)
         {
             case 0:
-                hairPanel.SetActive(true);
-                eyesPanel.SetActive(false);
-                nosePanel.SetActive(false);
-                mouthPanel.SetActive(false);
-                clothesPanel.SetActive(false);
+                skinColorPanel.SetActive(false);
+                hairImagePanel.SetActive(true);
+                hairColorPanel.SetActive(true);
+                eyesImagePanel.SetActive(false);
+                noseImagePanel.SetActive(false);
+                mouthImagePanel.SetActive(false);
+                clothesImagePanel.SetActive(false);
                 break;
             case 1:
-                hairPanel.SetActive(false);
-                eyesPanel.SetActive(true);
-                nosePanel.SetActive(false);
-                mouthPanel.SetActive(false);
-                clothesPanel.SetActive(false);
+                skinColorPanel.SetActive(true);
+                hairImagePanel.SetActive(false);
+                hairColorPanel.SetActive(false);
+                eyesImagePanel.SetActive(true);
+                noseImagePanel.SetActive(false);
+                mouthImagePanel.SetActive(false);
+                clothesImagePanel.SetActive(false);
                 break;
             case 2:
-                hairPanel.SetActive(false);
-                eyesPanel.SetActive(false);
-                nosePanel.SetActive(true);
-                mouthPanel.SetActive(false);
-                clothesPanel.SetActive(false);
+                skinColorPanel.SetActive(true);
+                hairImagePanel.SetActive(false);
+                hairColorPanel.SetActive(false);
+                eyesImagePanel.SetActive(false);
+                noseImagePanel.SetActive(true);
+                mouthImagePanel.SetActive(false);
+                clothesImagePanel.SetActive(false);
                 break;
             case 3:
-                hairPanel.SetActive(false);
-                eyesPanel.SetActive(false);
-                nosePanel.SetActive(false);
-                mouthPanel.SetActive(true);
-                clothesPanel.SetActive(false);
+                skinColorPanel.SetActive(true);
+                hairImagePanel.SetActive(false);
+                hairColorPanel.SetActive(false);
+                eyesImagePanel.SetActive(false);
+                noseImagePanel.SetActive(false);
+                mouthImagePanel.SetActive(true);
+                clothesImagePanel.SetActive(false);
                 break;
             default:
-                hairPanel.SetActive(false);
-                eyesPanel.SetActive(false);
-                nosePanel.SetActive(false);
-                mouthPanel.SetActive(false);
-                clothesPanel.SetActive(true);
+                skinColorPanel.SetActive(true);
+                hairImagePanel.SetActive(false);
+                hairColorPanel.SetActive(false);
+                eyesImagePanel.SetActive(false);
+                noseImagePanel.SetActive(false);
+                mouthImagePanel.SetActive(false);
+                clothesImagePanel.SetActive(true);
                 break;
         }
     }
@@ -237,10 +279,56 @@ public class CharacterCreatorController : MonoBehaviour
     {
         switch (_selection)
         {
+            case 0:
+                hairImage.GetComponent<Image>().color = new Color32(9, 8, 6, 255);
+                break;
             case 1:
-
+                hairImage.GetComponent<Image>().color = new Color32(59, 49, 38, 255);
+                break;
+            case 2:
+                hairImage.GetComponent<Image>().color = new Color32(83, 61, 58, 255);
+                break;
+            case 3:
+                hairImage.GetComponent<Image>().color = new Color32(106, 78, 66, 255);
+                break;
+            case 4:
+                hairImage.GetComponent<Image>().color = new Color32(145, 85, 61, 255);
+                break;
+            case 5:
+                hairImage.GetComponent<Image>().color = new Color32(181, 82, 57, 255);
+                break;
+            case 6:
+                hairImage.GetComponent<Image>().color = new Color32(242, 218, 145, 255);
+                break;
+            case 7:
+                hairImage.GetComponent<Image>().color = new Color32(238, 206, 168, 255);
+                break;
+            case 8:
+                hairImage.GetComponent<Image>().color = new Color32(113, 99, 93, 255);
+                break;
+            case 9:
+                hairImage.GetComponent<Image>().color = new Color32(255, 24, 225, 255);
+                break;
+            case 10:
+                hairImage.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+                break;
+            case 11:
+                hairImage.GetComponent<Image>().color = new Color32(255, 0, 255, 255);
+                break;
+            case 12:
+                hairImage.GetComponent<Image>().color = new Color32(0, 0, 255, 255);
+                break;
+            case 13:
+                hairImage.GetComponent<Image>().color = new Color32(0, 255, 255, 255);
+                break;
+            case 14:
+                hairImage.GetComponent<Image>().color = new Color32(0, 255, 0, 255);
+                break;
+            case 15:
+                hairImage.GetComponent<Image>().color = new Color32(255, 255, 0, 255);
                 break;
         }
+        UpdateSampleColors("hair");
     }
 
     public void UpdateEyes(int _selection)

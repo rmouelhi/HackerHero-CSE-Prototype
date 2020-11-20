@@ -109,6 +109,9 @@ public class UpdatePrefabAttributes : MonoBehaviour
             case "skin":
                 skinChild.GetComponent<Image>().color = skin.GetComponent<Image>().color;
                 break;
+            case "hair":
+                hairChild.GetComponent<Image>().color = hair.GetComponent<Image>().color;
+                break;
             case "all":
                 UpdateImage("skin");
                 break;
