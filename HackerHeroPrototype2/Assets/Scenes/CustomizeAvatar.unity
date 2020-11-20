@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 27668235}
   m_Layer: 5
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 102202690}
   m_Layer: 5
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2968,6 +2968,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203396184}
   m_CullTransparentMesh: 0
+--- !u!21 &209495379
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Montserrat-Bold SDF Material
+  m_Shader: {fileID: 4800000, guid: ffbb7ff7b6edb1c4694cf13d1da1b9c3, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 8673271471546014403, guid: f728be45a3ad9a24eb0c879635da81dd,
+          type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Ambient: 0.5
+    - _Bevel: 0.5
+    - _BevelClamp: 0
+    - _BevelOffset: 0
+    - _BevelRoundness: 0
+    - _BevelWidth: 0
+    - _BumpFace: 0
+    - _BumpOutline: 0
+    - _ColorMask: 15
+    - _Diffuse: 0.5
+    - _FaceDilate: 0
+    - _FaceUVSpeedX: 0
+    - _FaceUVSpeedY: 0
+    - _GlowInner: 0.05
+    - _GlowOffset: 0
+    - _GlowOuter: 0.05
+    - _GlowPower: 0.75
+    - _GradientScale: 1
+    - _LightAngle: 3.1416
+    - _MaskSoftnessX: 0
+    - _MaskSoftnessY: 0
+    - _OutlineSoftness: 0
+    - _OutlineUVSpeedX: 0
+    - _OutlineUVSpeedY: 0
+    - _OutlineWidth: 0
+    - _PerspectiveFilter: 0.875
+    - _Reflectivity: 10
+    - _ScaleRatioA: 0
+    - _ScaleRatioB: 0
+    - _ScaleRatioC: 0
+    - _ScaleX: 1
+    - _ScaleY: 1
+    - _ShaderFlags: 0
+    - _Sharpness: 0
+    - _SpecularPower: 2
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TextureHeight: 512
+    - _TextureWidth: 512
+    - _UnderlayDilate: 0
+    - _UnderlayOffsetX: 0
+    - _UnderlayOffsetY: 0
+    - _UnderlaySoftness: 0
+    - _VertexOffsetX: 0
+    - _VertexOffsetY: 0
+    - _WeightBold: 0.75
+    - _WeightNormal: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
+    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
+    - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1 &210833689
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,7 +3498,7 @@ GameObject:
   - component: {fileID: 232643003}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3751,7 +3853,7 @@ GameObject:
   - component: {fileID: 287602875}
   m_Layer: 5
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4224,7 +4326,7 @@ GameObject:
   - component: {fileID: 319467306}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4862,7 +4964,7 @@ GameObject:
   - component: {fileID: 418442568}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5094,7 +5196,7 @@ GameObject:
   - component: {fileID: 431777219}
   m_Layer: 5
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6063,7 +6165,7 @@ GameObject:
   - component: {fileID: 580038240}
   m_Layer: 5
   m_Name: Text (TMP) (3)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7587,6 +7689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9accd0dd281c42f4a826d718e65290ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  account: {fileID: 0}
   panels:
   - {fileID: 2115679693}
   - {fileID: 588036712}
@@ -7598,19 +7701,25 @@ MonoBehaviour:
   - {fileID: 1788304282}
   - {fileID: 990683531}
   - {fileID: 559433575}
-  AccountPage1: {fileID: 0}
-  AccountPage2: {fileID: 0}
-  AccountPage3: {fileID: 0}
-  AccountPage4: {fileID: 0}
-  AccountPage5: {fileID: 0}
-  AccountPage6: {fileID: 0}
-  AccountPage7: {fileID: 0}
-  AccountPage8: {fileID: 0}
-  AvatarPage: {fileID: 0}
+  mainCamera: {fileID: 1618922313}
+  progressBar: {fileID: 1770096917}
+  nextButton: {fileID: 1681127578}
+  previousButton: {fileID: 953552994}
   progressMask: {fileID: 1721027585}
   nameField: {fileID: 1878379126}
-  pronounFieldObj: {fileID: 0}
-  pronounField: {fileID: 0}
+  subjectFieldObj: {fileID: 1722149703}
+  subjectField: {fileID: 1722149705}
+  objectFieldObj: {fileID: 1326933738}
+  objectField: {fileID: 1326933740}
+  possessiveFieldObj: {fileID: 210833689}
+  possessiveField: {fileID: 210833690}
+  reflexiveFieldObj: {fileID: 615101642}
+  reflexiveField: {fileID: 615101643}
+  pronounDefinition: {fileID: 168248687}
+  genderFieldObj: {fileID: 131625144}
+  genderField: {fileID: 131625145}
+  genderDefinition: {fileID: 141651006}
+  superPowerField: {fileID: 2014081000}
 --- !u!1 &746333691
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,7 +7939,7 @@ GameObject:
   - component: {fileID: 749722003}
   m_Layer: 5
   m_Name: Text (TMP) (2)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8364,7 +8473,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -8393,7 +8502,7 @@ MonoBehaviour:
     spaceCount: 2
     wordCount: 3
     linkCount: 0
-    lineCount: 1
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -8507,7 +8616,7 @@ GameObject:
   - component: {fileID: 805117649}
   m_Layer: 5
   m_Name: Text (TMP) (4)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8812,7 +8921,7 @@ GameObject:
   - component: {fileID: 806831278}
   m_Layer: 5
   m_Name: Text (TMP) (3)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9860,7 +9969,7 @@ GameObject:
   - component: {fileID: 927534862}
   m_Layer: 5
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11108,108 +11217,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064877145}
   m_CullTransparentMesh: 0
---- !u!21 &1069972474
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Montserrat-Bold SDF Material
-  m_Shader: {fileID: 4800000, guid: ffbb7ff7b6edb1c4694cf13d1da1b9c3, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Cube:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _FaceTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 8673271471546014403, guid: f728be45a3ad9a24eb0c879635da81dd,
-          type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OutlineTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _Ambient: 0.5
-    - _Bevel: 0.5
-    - _BevelClamp: 0
-    - _BevelOffset: 0
-    - _BevelRoundness: 0
-    - _BevelWidth: 0
-    - _BumpFace: 0
-    - _BumpOutline: 0
-    - _ColorMask: 15
-    - _Diffuse: 0.5
-    - _FaceDilate: 0
-    - _FaceUVSpeedX: 0
-    - _FaceUVSpeedY: 0
-    - _GlowInner: 0.05
-    - _GlowOffset: 0
-    - _GlowOuter: 0.05
-    - _GlowPower: 0.75
-    - _GradientScale: 1
-    - _LightAngle: 3.1416
-    - _MaskSoftnessX: 0
-    - _MaskSoftnessY: 0
-    - _OutlineSoftness: 0
-    - _OutlineUVSpeedX: 0
-    - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
-    - _PerspectiveFilter: 0.875
-    - _Reflectivity: 10
-    - _ScaleRatioA: 0
-    - _ScaleRatioB: 0
-    - _ScaleRatioC: 0
-    - _ScaleX: 1
-    - _ScaleY: 1
-    - _ShaderFlags: 0
-    - _Sharpness: 0
-    - _SpecularPower: 2
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _TextureHeight: 512
-    - _TextureWidth: 512
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0
-    - _VertexOffsetX: 0
-    - _VertexOffsetY: 0
-    - _WeightBold: 0.75
-    - _WeightNormal: 0
-    m_Colors:
-    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
-    - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
-    - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
-    - _GlowColor: {r: 0, g: 1, b: 0, a: 0.5}
-    - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1 &1075495649
 GameObject:
   m_ObjectHideFlags: 0
@@ -11448,7 +11455,7 @@ GameObject:
   - component: {fileID: 1102496979}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11655,7 +11662,7 @@ GameObject:
   - component: {fileID: 1106791940}
   m_Layer: 5
   m_Name: Text (TMP) (3)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11886,7 +11893,7 @@ GameObject:
   - component: {fileID: 1135657179}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12248,7 +12255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1069972474}
+  m_Material: {fileID: 209495379}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -12258,7 +12265,7 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: f728be45a3ad9a24eb0c879635da81dd, type: 2}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 1069972474}
+  m_sharedMaterial: {fileID: 209495379}
   m_isDefaultMaterial: 0
   m_padding: 0
   m_canvasRenderer: {fileID: 1157111107}
@@ -12719,7 +12726,7 @@ GameObject:
   - component: {fileID: 1188115315}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14301,7 +14308,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 66
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -14330,7 +14337,7 @@ MonoBehaviour:
     spaceCount: 13
     wordCount: 13
     linkCount: 0
-    lineCount: 3
+    lineCount: 5
     pageCount: 1
     materialCount: 2
   m_isUsingLegacyAnimationComponent: 0
@@ -15590,7 +15597,7 @@ GameObject:
   - component: {fileID: 1417064363}
   m_Layer: 5
   m_Name: Text (TMP) (5)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18022,7 +18029,7 @@ GameObject:
   - component: {fileID: 1686879914}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18349,7 +18356,7 @@ GameObject:
   - component: {fileID: 1697668791}
   m_Layer: 5
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20673,7 +20680,7 @@ GameObject:
   - component: {fileID: 1857936516}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23046,7 +23053,7 @@ GameObject:
   - component: {fileID: 2076693082}
   m_Layer: 5
   m_Name: Text (TMP) (1)
-  m_TagString: Untagged
+  m_TagString: ToggleText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
