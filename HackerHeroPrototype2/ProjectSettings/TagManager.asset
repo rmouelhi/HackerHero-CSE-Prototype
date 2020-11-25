@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sample On
   - Sample Off
+  - ToggleText
   layers:
   - Default
   - TransparentFX

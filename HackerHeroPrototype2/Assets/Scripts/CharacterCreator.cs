@@ -64,11 +64,7 @@ public class CharacterCreator : MonoBehaviour
             shoes[i].SetActive(false);
         }
 
-        Debug.Log(hairs.Length);
-        Debug.Log(skins.Length);
-        Debug.Log(tops.Length);
-        Debug.Log(bottoms.Length);
-        Debug.Log(shoes.Length);
+        
     }
 
     // Update is called once per frame
