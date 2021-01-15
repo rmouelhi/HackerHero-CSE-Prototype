@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class AccountScript : MonoBehaviour
 {
     //public Account account;
@@ -20,11 +19,9 @@ public class AccountScript : MonoBehaviour
     private Pronouns pronouns;
     private MissionFocus missions;
     private Gender gender;
-    public Account2 account;
+    public Account account;
     private bool helpingCivilians, hacking, climbingRanks, solvingCrime, pronounHelp, genderHelp,dayNight;
-
-
-
+    
     [Header("Settings")]
     public GameObject[] panels = new GameObject[10];
     public GameObject mainCamera;
@@ -57,31 +54,10 @@ public class AccountScript : MonoBehaviour
     public GameObject genderDefinition;
     [Header("Superpower")]
     public TMP_InputField superPowerField;
-
-
-    /*public struct Account
-    {
-        string name;
-        string[] pronouns; // Subjective, Objective, Possesive, Possesive Pronoun
-        string genderID;
-        string ethnicity;
-        string hasDisability;
-        int gradeLvl;
-
-        public Account(string _name, string[] _pronouns, string _genderID, string _ethnicity, string _hasDisability, int _gradeLvl)
-        {
-            name = _name;
-            pronouns = _pronouns;
-            genderID = _genderID;
-            ethnicity = _ethnicity;
-            hasDisability = _hasDisability;
-            gradeLvl = _gradeLvl;
-        }
-    }*/
-
+    
     public void Start()
     {
-        account = new Account2(); //temp
+        account = new Account(); //temp
         missions = new MissionFocus();
         genderDefinition.SetActive(false);
         pronounDefinition.SetActive(false);
@@ -105,13 +81,12 @@ public class AccountScript : MonoBehaviour
         Debug.Log("toggleList length: " + toggleList.Length);
         ChangePanelHelper(0);
     }
-
+    /*
     public void ChangePage(int direction)
     {
         currentPage += direction;
 
         Debug.Log(account.toString());
-        //Debug.Log(AccountToString()); // Temp!
 
 
 
@@ -221,7 +196,7 @@ public class AccountScript : MonoBehaviour
                 break;
         }
     }
-
+    */
     public void SetAllPanelsActive()
     {
         foreach(GameObject panel in panels)
@@ -336,8 +311,7 @@ public class AccountScript : MonoBehaviour
         if (reflexiveField.text != "") pronouns.Reflexive = reflexiveField.text;
         account.Pronouns = pronouns;
     }
-
-
+    
     public void UpdateGender(int _selection)
     {
         /*if (genderID == null)
@@ -376,10 +350,6 @@ public class AccountScript : MonoBehaviour
         if (genderField.text != "") gender.Genders = genderField.text;
         account.Gender = gender; 
     }
-
-
-
-
 
     public void UpdateGrade(int _selection)
     {

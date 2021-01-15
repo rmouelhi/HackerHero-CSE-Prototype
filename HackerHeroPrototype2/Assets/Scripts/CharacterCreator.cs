@@ -31,7 +31,7 @@ public class CharacterCreator : MonoBehaviour
 
         for(int i = 0; i < topTemps.Length; i++)
         {
-            tops[i] = Instantiate((GameObject)topTemps[i], top.transform.position, top.transform.rotation ,parent.transform);
+            tops[i] = Instantiate((GameObject)topTemps[i], Vector3.zero, top.transform.rotation ,parent.transform);
             tops[i].SetActive(false);
         }
 
@@ -39,28 +39,28 @@ public class CharacterCreator : MonoBehaviour
         hairs = new GameObject[hairTemps.Length];
         for (int i = 0; i < hairTemps.Length; i++)
         {
-            hairs[i] = Instantiate((GameObject)hairTemps[i], hair.transform.position, hair.transform.rotation, parent.transform);
+            hairs[i] = Instantiate((GameObject)hairTemps[i], Vector3.zero, hair.transform.rotation, parent.transform);
             hairs[i].SetActive(false);
         }
         Object[] skinTemps = Resources.LoadAll("Prefabs/Skin", typeof(GameObject));
         skins = new GameObject[skinTemps.Length];
         for (int i = 0; i < skinTemps.Length; i++)
         {
-            skins[i] = Instantiate((GameObject)skinTemps[i], skin.transform.position, skin.transform.rotation, parent.transform);
+            skins[i] = Instantiate((GameObject)skinTemps[i], Vector3.zero, skin.transform.rotation, parent.transform);
             skins[i].SetActive(false);
         }
         Object[] bottomTemps = Resources.LoadAll("Prefabs/Bottom", typeof(GameObject));
         bottoms = new GameObject[bottomTemps.Length];
         for (int i = 0; i < bottomTemps.Length; i++)
         {
-            bottoms[i] = Instantiate((GameObject)bottomTemps[i], bottom.transform.position, bottom.transform.rotation, parent.transform);
+            bottoms[i] = Instantiate((GameObject)bottomTemps[i], Vector3.zero, bottom.transform.rotation, parent.transform);
             bottoms[i].SetActive(false);
         }
         Object[] shoeTemps = Resources.LoadAll("Prefabs/Shoe", typeof(GameObject));
         shoes = new GameObject[shoeTemps.Length];
         for (int i = 0; i < shoeTemps.Length; i++)
         {
-            shoes[i] = Instantiate((GameObject)shoeTemps[i], shoe.transform.position, shoe.transform.rotation, parent.transform);
+            shoes[i] = Instantiate((GameObject)shoeTemps[i], Vector3.zero, shoe.transform.rotation, parent.transform);
             shoes[i].SetActive(false);
         }
 
