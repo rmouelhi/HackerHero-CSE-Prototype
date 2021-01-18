@@ -15,4 +15,15 @@ public class LoadSceneScript : MonoBehaviour
 
         //}
     }
+
+    public void LoadScene(int _index)
+    {
+        //try
+        //{
+        SceneManager.LoadScene(_index);
+        //} catch()
+        //{
+
+        //}
+    }
 }

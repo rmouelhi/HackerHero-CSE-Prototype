@@ -44,6 +44,7 @@ public class PagesManager : MonoBehaviour
     {
         transform.GetChild(currentPage).gameObject.SetActive(false);
         currentPage += _selection;
+        currentPage = currentPage >= numberOfPages ? numberOfPages - 1 : currentPage < 0 ? 0 : currentPage;
         transform.GetChild(currentPage).gameObject.SetActive(true);
     }
 
@@ -51,6 +52,7 @@ public class PagesManager : MonoBehaviour
     {
         transform.GetChild(currentPage).gameObject.SetActive(false);
         currentPage = _selection;
+        currentPage = currentPage >= numberOfPages ? numberOfPages - 1 : currentPage < 0 ? 0 : currentPage;
         transform.GetChild(currentPage).gameObject.SetActive(true);
     }
 
