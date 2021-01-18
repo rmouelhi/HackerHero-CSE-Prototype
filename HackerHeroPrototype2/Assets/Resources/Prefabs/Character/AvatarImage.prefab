@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8349891816210208831}
   - component: {fileID: 5143424815127498866}
   - component: {fileID: 4556936150621421041}
-  - component: {fileID: 6611505283839209710}
   m_Layer: 5
   m_Name: AvatarImage
   m_TagString: Sample On
@@ -82,24 +81,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6611505283839209710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 700757665850977139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b6433aec92e31c4293a85231a35cb7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overrideSkin: 0
-  overrideHair: 0
-  overrideEyes: 0
-  overrideNose: 0
-  overrideMouth: 0
-  overrideClothes: 0
 --- !u!1001 &485685581269464486
 PrefabInstance:
   m_ObjectHideFlags: 0
