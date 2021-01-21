@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "HackerHeroPrototype2",
+"productVersion": "0.1",
+"dataUrl": "CharacterCreator-v2-WebGL.data.unityweb",
+"wasmCodeUrl": "CharacterCreator-v2-WebGL.wasm.code.unityweb",
+"wasmFrameworkUrl": "CharacterCreator-v2-WebGL.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": true,
+"multithreading": false,
+"unityVersion": "2019.4.1f1"
+}
